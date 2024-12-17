@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, StringVar, Entry, Button, Frame
 
 def click(event):
     global screenValue
@@ -42,8 +42,8 @@ root.config(background="#204051")
 
 # creating the Screen to show calculations
 screenValue = StringVar()
-screen = Entry(root, textvar=screenValue, font="poppins 30 bold", justify=LEFT, bg="white", fg="black", highlightbackground="black",highlightcolor="white", highlightthickness=3, bd=1, insertbackground="black")
-screen.pack(fill=BOTH, ipady=10, pady=10, )
+screen = Entry(root, textvar=screenValue, font="poppins 30 bold", justify="left", bg="white", fg="black", highlightbackground="black",highlightcolor="white", highlightthickness=3, bd=1, insertbackground="black")
+screen.pack(fill="both", ipady=10, pady=10, )
 
 # Button Layout
 buttons = [
@@ -57,15 +57,15 @@ buttons = [
 # Creating Buttons using For loop
 for row in buttons:
     button_row = Frame(root, background="#3B3B3B")
-    button_row.pack(fill=BOTH, expand=True)
+    button_row.pack(fill="both", expand=True)
     for button_text in row:
         if button_text == "=":
             button = Button(button_row, text=button_text, font='poppins 18 bold', height=2, width=12, bd=5 ,background="#a17af6")
-            button.pack(side=LEFT,fill=BOTH, expand=True,  padx=5, pady=5)
+            button.pack(side="left",fill="both", expand=True,  padx=5, pady=5)
             button.bind("<Button-1>", click)
         else:
             button = Button(button_row, text=button_text, font='poppins 19 bold', height=2, width=5, background="#3B3B3B", foreground="white", highlightbackground="#204051",bd=5, highlightcolor="#204051")
-            button.pack(side=LEFT,fill=BOTH, expand=True,  padx=5, pady=5)
+            button.pack(side="left",fill="both", expand=True,  padx=5, pady=5)
             button.bind("<Button-1>", click)
 
 # Bind keyboard keys to the application
